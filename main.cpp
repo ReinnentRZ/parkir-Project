@@ -57,15 +57,6 @@ void cariKendaraan() {
     getline(cin, cariPlat);
 
     bool ditemukan = false;
-    // for (int i = 0; i < jumlahKendaraan; i++) {
-    //     if (parkiran[i].platNomor == cariPlat) {
-    //         cout << "\nKendaraan Ditemukan!\n";
-    //         cout << "Plat Nomor    : " << parkiran[i].platNomor << endl;
-    //         cout << "Jenis         : " << parkiran[i].jenisKendaraan << endl;
-    //         ditemukan = true;
-    //         break;
-    //     }
-    // }
     int i = 0;
     while (!ditemukan) {
 
