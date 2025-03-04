@@ -1,5 +1,9 @@
 #include <iostream>
 #include <ctime>
+//notepad catatan
+
+//rekursif
+//waktu
 
 using namespace std;
 
@@ -18,6 +22,7 @@ void tambahKendaraan();
 void cariKendaraan();
 void tampilkanKendaraan();
 void hapusKendaraan();
+void waktuKendaraan();
 void menu();
 
 int main() {
@@ -124,6 +129,11 @@ void hapusKendaraan() {
     }
 }
 
+void waktuKendaraan() {
+
+    
+
+}
 void menu() {
     int menuPilihan;
     string ulang;
@@ -134,7 +144,8 @@ void menu() {
         cout << "2. Cari Kendaraan\n";
         cout << "3. Tampilkan Kendaraan\n";
         cout << "4. Keluarkan Kendaraan\n";
-        cout << "5. Keluar\n";
+        cout << "5. Waktu Kendaraan\n";
+        cout << "6. Keluar\n";
         cout << "Pilih Menu: ";
         cin >> menuPilihan;
         cin.ignore();
@@ -153,6 +164,8 @@ void menu() {
                 hapusKendaraan();
                 break;
             case 5:
+                waktuKendaraan();
+            case 6:
                 cout << "Keluar dari program.\n";
                 return;
             default:
