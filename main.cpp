@@ -1,9 +1,5 @@
 #include <iostream>
 #include <ctime>
-//notepad catatan
-
-//rekursif
-//waktu
 
 using namespace std;
 
@@ -22,8 +18,7 @@ void tambahKendaraan();
 void cariKendaraan();
 void tampilkanKendaraan();
 void hapusKendaraan();
-void waktuKendaraan();
-void menu();
+void menu(); 
 
 int main() {
     menu();
@@ -62,30 +57,18 @@ void cariKendaraan() {
     getline(cin, cariPlat);
 
     bool ditemukan = false;
-    int i = 0;
-    while (!ditemukan) {
-
+    for (int i = 0; i < jumlahKendaraan; i++) {
         if (parkiran[i].platNomor == cariPlat) {
-
             cout << "Plat Nomor    : " << parkiran[i].platNomor << endl;
             cout << "Jenis         : " << parkiran[i].jenisKendaraan << endl;
             ditemukan = true;
             break;
-
-        } else {
-
-            i = i + 1;
-
         }
-
-        if (!ditemukan) {
-            cout << "Kendaraan tidak ditemukan.\n";
-            break;
-            menu();
-        }
-
     }
 
+    if (!ditemukan) {
+        cout << "Kendaraan tidak ditemukan.\n";
+    }
 }
 
 void tampilkanKendaraan() {
@@ -129,51 +112,42 @@ void hapusKendaraan() {
     }
 }
 
-void waktuKendaraan() {
-
-    
-
-}
 void menu() {
     int menuPilihan;
+    cout << "\n===== MENU PARKIR =====\n";
+    cout << "1. Tambah Kendaraan\n";
+    cout << "2. Cari Kendaraan\n";
+    cout << "3. Tampilkan Kendaraan\n";
+    cout << "4. Keluarkan Kendaraan\n";
+    cout << "5. Keluar\n";
+    cout << "Pilih Menu: ";
+    cin >> menuPilihan;
+    cin.ignore();
+
+    switch (menuPilihan) {
+        case 1:
+            tambahKendaraan();
+            break;
+        case 2:
+            cariKendaraan();
+            break;
+        case 3:
+            tampilkanKendaraan();
+            break;
+        case 4:
+            hapusKendaraan();
+            break;
+        case 5:
+            cout << "Keluar dari program.\n";
+            return; 
+        default:
+            cout << "Pilihan tidak valid.\n";
+    }
     string ulang;
+    cout << "\nApakah Anda ingin kembali ke menu? (y/n): ";
+    getline(cin, ulang);
     
-    do {
-        cout << "\n===== MENU PARKIR =====\n";
-        cout << "1. Tambah Kendaraan\n";
-        cout << "2. Cari Kendaraan\n";
-        cout << "3. Tampilkan Kendaraan\n";
-        cout << "4. Keluarkan Kendaraan\n";
-        cout << "5. Waktu Kendaraan\n";
-        cout << "6. Keluar\n";
-        cout << "Pilih Menu: ";
-        cin >> menuPilihan;
-        cin.ignore();
-
-        switch (menuPilihan) {
-            case 1:
-                tambahKendaraan();
-                break;
-            case 2:
-                cariKendaraan();
-                break;
-            case 3:
-                tampilkanKendaraan();
-                break;
-            case 4:
-                hapusKendaraan();
-                break;
-            case 5:
-                waktuKendaraan();
-            case 6:
-                cout << "Keluar dari program.\n";
-                return;
-            default:
-                cout << "Pilihan tidak valid.\n";
-        }
-
-        cout << "\nApakah Anda ingin kembali ke menu? (y/n): ";
-        getline(cin, ulang);
-
-    } while (ulang == "y" || ulang == "Y");
+    if (ulang == "y" || ulang == "Y") {
+        menu(); 
+    }
 }
